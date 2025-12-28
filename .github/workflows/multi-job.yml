@@ -1,0 +1,17 @@
+name: Two Jobs Workflow 
+
+on: [push]
+
+jobs:
+  #job one the tester
+  test-code:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run Tests
+        run: echo "Testing code.. Done!"
+  build-code:
+    needs: test-code
+    runs-on: ubuntu-latest
+    steps:
+     - name: Build app
+       run: echo "Building application.."
