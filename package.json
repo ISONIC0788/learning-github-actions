@@ -1,0 +1,8 @@
+{
+  "name": "my-app",
+  "version": "1.0.0",
+  "scripts": {
+    "build": "echo 'Building the app... Done!'",
+    "test": "echo 'Error: no test specified' && exit 1"
+  }
+}

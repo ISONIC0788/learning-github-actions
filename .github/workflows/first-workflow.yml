@@ -1,19 +1,22 @@
 name: First Workflow
 on: [push ,workflow_dispatch]
-jobs:
-  hello-job:
-    runs-on: ubuntu-latest
 
+jobs: 
+  build-and-test:
+    runs-on: ubuntu-latest
     steps:
-      - name: Checkout code            # allow to downloading the code
+      - name: checkout code    # allow to downloading code 
         uses: actions/checkout@v4
-        
-      - name: Install Node.js         #allow to downloading the node  js
+      - name: Insatll node js
         uses: actions/setup-node@v4
-        with:
-         node-version: '20'
-         
-      - name: Check Node version               # verfication of node 
-        run: node -v
+        with: 
+          node-version: '20'
+      - name: Install Dependencies
+        run: npm install 
+      - name: Run build
+        run: npm build
+      - name: test code 
+        run: npm test
+
       
         
