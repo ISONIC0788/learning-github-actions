@@ -1,0 +1,10 @@
+name: Secret Workflow
+on: [workflow_dispatch]
+
+jobs:
+ secret-job:
+   runs-on: ubunt-latest
+   steps:
+     - name: Reveal Secret 
+       run: echo "the sceret is ${{ secrets.SUPER_SECRET}}"
+   
