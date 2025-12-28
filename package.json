@@ -2,7 +2,7 @@
   "name": "my-app",
   "version": "1.0.0",
   "scripts": {
-    "build": "echo 'Building the app... Done!'",
+    "build": "mkdir -p dist && echo 'My App Code' > dist/index.html",
     "test": "echo 'Tests passed!' && exit 0"
   }
 }
