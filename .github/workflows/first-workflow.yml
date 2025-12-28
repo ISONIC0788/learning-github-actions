@@ -1,0 +1,13 @@
+name: Kitchen Workflow
+on: [push]
+jobs:
+  cook-dinner:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Get Ingredients
+        uses: actions/checkout@v4
+      - name: Cook the food
+        run: echo "cooking....."
+      
+        
