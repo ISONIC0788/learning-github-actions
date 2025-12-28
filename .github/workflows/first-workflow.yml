@@ -1,15 +1,19 @@
-name: Kitchen Workflow
-on: 
- push:
- workflow_dispatch:
+name: First Workflow
+on: [push ,workflow_dispatch]
 jobs:
-  cook-dinner:
+  hello-job:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Get Ingredients
+      - name: Checkout code            # allow to downloading the code
         uses: actions/checkout@v4
-      - name: Cook the food
-        run: echo "cooking....."
+        
+      - name: Install Node.js         #allow to downloading the node  js
+        uses: actions/setup-node@v4
+        with:
+         node-version: '20'
+         
+      - name: Check Node version               # verfication of node 
+        run: node -v
       
         
