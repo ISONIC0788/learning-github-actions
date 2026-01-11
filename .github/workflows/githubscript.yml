@@ -1,0 +1,21 @@
+  name:  Welecome Bot 
+
+  on: 
+    issues: 
+        types: [opened]
+  jobs:
+    welcome-user:
+        runs-on: ubuntu-latest
+        permissions:
+            issues:  write # We need permission to post comments
+        steps:
+           - name: post post welcome message 
+             uses: actions/github-script@v7
+             with:
+                script: |
+                    github.rest.issues.createComment({
+                          issue_number: context.issue.number,
+                          owner: context.repo.owner,
+                          repo: context.repo.repo,
+                          body: '👋 Thanks for opening this issue! A maintainer will look at it shortly.'
+                    })
