@@ -28,7 +28,7 @@
               if: matrix.node-version == 20
               uses: actions/upload-artifact@v4
               with:
-                name: production-files-${{matrix.node-version}}  #unique id per version
+                name: production-files #unique id per version /*${{matrix.node-version}} */
                 path: dist/ 
     deploy:
         runs-on: ubuntu-latest 
@@ -38,7 +38,7 @@
             - name: Download artifact
               uses: actions/download-artifact@v4 
               with:
-                name: production-files-${{matrix.node-version}}
+                name: production-files
                 path: .dist/
             - name:  Simulate deployments
               run: echo "Deploying version ${{github.sha}} to production" 
