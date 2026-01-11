@@ -8,10 +8,10 @@
                 node-version: [18, 20 , 22]    # matrix that allow to checkout all node version not one
         steps:
             - name: Checkout Code
-              uses: action/checkout@v4      # allow to downloeading entire repository 
+              uses: actions/checkout@v4      # allow to downloeading entire repository 
 
             - name: Install node js     
-              uses: action/setup-node@v4    # allow to install node js 3 version using matrix
+              uses: actions/setup-node@v4    # allow to install node js 3 version using matrix
               with:
                 node-version: ${{matrix.node-version}}
                 cache: 'npm'
@@ -25,7 +25,7 @@
               run: npm test
             
             - name: upload to artifact
-              uses: action/upload-artifact@v4
+              uses: actions/upload-artifact@v4
               with:
                 name: production-files-${{matrix.node-version}}  #unique id per version
                 path: dist/ 
